@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <%- include('partials/head.ejs')%>
+</head>
+<body>
+
+    <%- include('partials/navigation.ejs')%>
+
+    <div class="container vh-100">
+        <div><h1>Contact</h1></div>
+        <br />
+        <div class="row">
+            <div class="col-md-6">
+                <div id="googlemap" style="width:100%; height:350px;">
+                    <script>(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})
+                        ({key: "AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg", v: "weekly"});</script>
+                </div>
+            </div>
+            <br />
+            <div class="col-md-6">
+                <form class="my-form">
+                    <div class="form-group">
+                        <label for="form-name">Name</label>
+                        <input type="email" class="form-control" id="form-name" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-email">Email Address</label>
+                        <input type="email" class="form-control" id="form-email" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-subject">Telephone</label>
+                        <input type="text" class="form-control" id="form-subject" placeholder="Subject">
+                    </div>
+                    <div class="form-group">
+                        <label for="form-message">Email your Message</label>
+                        <textarea class="form-control" id="form-message" placeholder="Message"></textarea>
+                    </div>
+                    <button class="btn btn-default" type="submit">Contact Us</button>                
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .my-form {
+            color: #305896;
+        }
+        .my-form .btn-default {
+            background-color: #305896;
+            color: #fff;
+            border-radius: 0;
+        }
+        .my-form .btn-default:hover {
+            background-color: #4498C6;
+            color: #fff;
+        }
+        .my-form .form-control {
+            border-radius: 0;
+        }
+    </style>
+    
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <script>
+        let map;
+
+async function initMap() {
+  const { Map } = await google.maps.importLibrary("maps");
+
+  map = new Map(document.getElementById("map"), {
+    center: { lat: -34.397, lng: 150.644 },
+    zoom: 8,
+  });
+}
+
+initMap();
+    </script>
+    
+   
+
+
+    <%- include('partials/footer.ejs')%>
+    
+</body>
+</html>
